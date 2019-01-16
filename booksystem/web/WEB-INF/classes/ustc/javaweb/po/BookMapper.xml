@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ustc.javaweb.po.BookMapper">
+    <insert id="save" parameterType="ustc.javaweb.eo.Book">
+        insert into book_info values(#{bookname},#{author},#{booknumber},#{price},#{publisher},#{publish_time},#{store},#{exit})
+    </insert>
+    <select id="getBooks" resultType="ustc.javaweb.eo.Book">
+        select * from book_info order by booknumber desc
+    </select>
+    <select id="loadByBooknumber" parameterType="string" resultType="ustc.javaweb.eo.Book">
+        SELECT * FROM book_info WHERE booknumber = #{booknumber}
+    </select>
+    <select id="loadByBookname" parameterType="string" resultType="ustc.javaweb.eo.Book">
+        SELECT * FROM book_info WHERE bookname = #{bookname}
+    </select>
+    <select id="loadByPubilsher" parameterType="string" resultType="ustc.javaweb.eo.Book">
+        SELECT * FROM book_info WHERE publisher = #{publisher}
+    </select>
+    <select id="loadByAuthor" parameterType="string" resultType="ustc.javaweb.eo.Book">
+        SELECT * FROM book_info WHERE author = #{author}
+    </select>
+
+
+</mapper>
